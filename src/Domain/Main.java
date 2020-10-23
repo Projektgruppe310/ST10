@@ -1,4 +1,4 @@
-package main.java;
+package Domain;
 
 public class Main {
 }
