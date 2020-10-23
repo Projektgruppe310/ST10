@@ -1,4 +1,5 @@
 package Domain;
 
-public class Main {
+public class Main{
+    
 }
