@@ -6,11 +6,11 @@ import java.util.List;
 
 
 
-    public class ConnectOPC {
+    public class ConnectOPC{
 
             public static void main(String[] args) {
             try {
-                org.apache.log4j.BasicConfigurator.configure(new Null Appender());
+                org.apache.log4j.BasicConfigurator.configure(new NullAppender());
                 List<EndpointDescription> endpoints = DiscoveryClient.getEndpoints("opc.tcp://localhost:12686/milo").get();
                 System.out.println("Endpoints - " + endpoints);
             } catch (Exception e) {
