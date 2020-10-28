@@ -1,7 +1,5 @@
 package main;
 
-import java.util.List;
-import org.apache.log4j.varia.NullAppender;
 import org.eclipse.milo.opcua.sdk.client.OpcUaClient;
 import org.eclipse.milo.opcua.sdk.client.api.config.OpcUaClientConfigBuilder;
 import org.eclipse.milo.opcua.stack.client.DiscoveryClient;
@@ -10,13 +8,16 @@ import org.eclipse.milo.opcua.stack.core.types.builtin.NodeId;
 import org.eclipse.milo.opcua.stack.core.types.builtin.Variant;
 import org.eclipse.milo.opcua.stack.core.types.enumerated.TimestampsToReturn;
 import org.eclipse.milo.opcua.stack.core.types.structured.EndpointDescription;
+
 import java.util.List;
+
+//import org.apache.log4j.varia.NullAppender;
 public class Read {
 
         public static void main(String[] args) {
             //At first we try to establish a connection to the software simulator url, if it connects we want it to print all endpoints
             try {
-                org.apache.log4j.BasicConfigurator.configure(new NullAppender());
+               // org.apache.log4j.BasicConfigurator.configure(new NullAppender());
                 List<EndpointDescription> endpoints = DiscoveryClient.getEndpoints("opc.tcp://127.0.0.1:4840").get();
                 //System.out.println("Endpoints - " + endpoints);
 
@@ -56,4 +57,4 @@ public class Read {
 
 
     }
-}
+
