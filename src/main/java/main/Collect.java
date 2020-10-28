@@ -1,3 +1,5 @@
+package main;
+
 public class Collect {
     double temperature;
     float vibration;
