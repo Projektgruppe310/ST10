@@ -27,8 +27,16 @@ public class Collect {
         this.humidity = humidity;
     }
 
-    public void 
+    public void getCollec(double temperature, float vibration, int humidity) {
+        this.temperature = getTemperature();
+        this.vibration = getVibration();
+        this.humidity = getHumidity();
+    }
+
+
+
 }
+
 
 
 
