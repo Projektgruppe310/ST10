@@ -29,11 +29,13 @@ public class Collect {
         this.humidity = humidity;
     }
 
-    public void getCollec(double temperature, float vibration, int humidity) {
+    public void getCollec() {
         this.temperature = getTemperature();
         this.vibration = getVibration();
         this.humidity = getHumidity();
+        System.out.println(this.temperature);
     }
+
 
 
 
