@@ -14,43 +14,29 @@ import java.util.concurrent.ExecutionException;
 
 public class MachineControl {
 
+    // Static connection to OpcUAConnector client
+    private static OpcUaClient client = null;
 
+    // Uses the OpcUaClient to write to the CntrlCmd command in UaExpert. Namespace 6.
+    // Uses cmd as argument and sends the client and cmd to machineChangeRequest, which confirms the command.
+    protected void machineCntrlCmd(int cmd){
 
-    public String machineSwitch(int cmd){
+        client = OpcUAConnector.getOpcUaClient();
 
-        try {
-            List<EndpointDescription> endpoints = DiscoveryClient.getEndpoints("opc.tcp://127.0.0.1:4840").get();
-
-            OpcUaClientConfigBuilder cfg = new OpcUaClientConfigBuilder();
-            cfg.setEndpoint(endpoints.get(0));
-
-            OpcUaClient client = OpcUaClient.create(cfg.build());
-            client.connect().get();
-
-            machineCntrlCmd(client, cmd);
-
-        } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-
-            return "Connection failed!";
-    }
-
-    private String machineCntrlCmd(OpcUaClient client, int cmd){
         try{
             NodeId nodeId = new NodeId(6, "::Program:Cube.Command.CntrlCmd");
             client.writeValue(nodeId, DataValue.valueOnly(new Variant(cmd))).get();
 
-            machineChangeRequest(client, cmd);
-
-
+            System.out.println(machineChangeRequest(client, cmd));
 
         } catch (Throwable ex){
             ex.printStackTrace();
+            System.out.println("Something went wrong with the command");
         }
-        return "Something went wrong with the command";
     }
 
+    // Uses the client to make CmdChangeRequest true. The cmd is used in a switch to return the correct feedback.
+    // Feedback needs work / understanding.
     private String machineChangeRequest(OpcUaClient client, int cmd){
         try{
 
@@ -62,6 +48,7 @@ public class MachineControl {
                     //Nothing
                 }
                 case 1: { // 1 - Reset
+                    return "Machine resetted!";
 
                 }
                 case 2: { // 2 - Start
@@ -71,10 +58,11 @@ public class MachineControl {
                     return "Machine stopped!";
                 }
                 case 4: { // 4 - Abort
+                    return "Machine aborted!"; // uuuuuuuum
 
                 }
                 case 5: { // 5 - Clear
-
+                    return "Machine cleared!"; // Oooook?
                 }
                 default:
                     return "Invalid command.";

@@ -8,7 +8,7 @@ public class Main{
 
 
         MachineControl machineControl = new MachineControl();
-        machineControl.machineSwitch(2);
+        machineControl.machineCntrlCmd(2);
     }
     
 }
