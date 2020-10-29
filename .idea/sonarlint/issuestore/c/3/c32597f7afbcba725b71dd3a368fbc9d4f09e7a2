@@ -1,0 +1,15 @@
+
+V
+java:S4973K"9Use the "equals" method if value comparison was intended.(ŽÄï…8ìô‚Ž×.
+T	java:S106I"9Replace this use of System.out or System.err by a logger.(Ðœñ<8Äèå‹×.
+Z	java:S106X"9Replace this use of System.out or System.err by a logger.(Òé¾üûÿÿÿÿ8ìô‚Ž×.
+V
+java:S4973G"9Use the "equals" method if value comparison was intended.(€Å®8‹¤µŒ×.
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄŸÄÿÿÿÿÿ
+V
+java:S4973U"9Use the "equals" method if value comparison was intended.(ó®…å8ìô‚Ž×.
+Z	java:S106\"9Replace this use of System.out or System.err by a logger.(©þêÜúÿÿÿÿ8±§½‹×.
+[
+java:S4973P"9Use the "equals" method if value comparison was intended.(¹óà›ýÿÿÿÿ8ìô‚Ž×.
+T	java:S106N"9Replace this use of System.out or System.err by a logger.(¥ßÐ8ìô‚Ž×.
+U	java:S106S"9Replace this use of System.out or System.err by a logger.(ù²ø…8ìô‚Ž×.
