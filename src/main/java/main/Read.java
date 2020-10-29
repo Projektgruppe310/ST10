@@ -38,6 +38,8 @@ public class Read {
             specific nodeId. Here we want to read the value corresponding to the cube.command.Machspeed */
                 NodeId nodeId = new NodeId(6, "::Program:Cube.Admin.ProdProcessedCount");
                 DataValue dataValue =client.readValue(0, TimestampsToReturn.Both, nodeId).get();
+                NodeId nodeId2 = new NodeId(6, "::Program:Cube.Admin.ProdProcessedCount");
+                DataValue dataValue2 =client.readValue(0, TimestampsToReturn.Both, nodeId).get();
 
             /* now to simplify the response from the read operation, we want to store the read value that goes by
             "variant" as the variable specific to the operation. Here we start out by doing it for the machine speed
