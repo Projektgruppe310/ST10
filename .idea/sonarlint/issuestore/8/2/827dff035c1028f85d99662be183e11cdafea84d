@@ -1,8 +1,8 @@
 
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄŸÄÿÿÿÿÿ
-H
-java:S1068"2Remove this unused "beersPerMinute" private field.(€¦÷Ö
 E
 java:S1068"/Remove this unused "productType" private field.(„Ûñİ
 K
 java:S1068"0Remove this unused "curMachSpeed" private field.(¸’¾Ìøÿÿÿÿ
+H
+java:S1068"2Remove this unused "beersPerMinute" private field.(€¦÷Ö
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄŸÄÿÿÿÿÿ

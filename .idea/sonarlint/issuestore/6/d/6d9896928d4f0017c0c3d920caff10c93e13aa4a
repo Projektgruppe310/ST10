@@ -1,17 +1,17 @@
 
-X
-java:S2184A"BCast one of the operands of this division operation to a "double".(ŒŒË
-V
-java:S2184A"@Cast one of the operands of this integer division to a "double".(ŒŒË
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄŸÄÿÿÿÿÿ
-s
-java:S1450!"XRemove the "goodCount" field and declare it as a local variable in the relevant methods.(¤¯ãëùÿÿÿÿ
-y
-java:S1450#"dRemove the "idealCycleTimeSeconds" field and declare it as a local variable in the relevant methods.(ÊÓ—Z
-g
-java:S1450)"RRemove the "oee" field and declare it as a local variable in the relevant methods.(Ñäó
 †
 java:S1450'"kRemove the "plannedProductionTimeMinutes" field and declare it as a local variable in the relevant methods.(İ“Ú½üÿÿÿÿ
-c	java:S100G"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ÜÕ
 G
 java:S1144G"1Remove this unused private "CalculateOEE" method.(”ÜÕ
+y
+java:S1450#"dRemove the "idealCycleTimeSeconds" field and declare it as a local variable in the relevant methods.(ÊÓ—Z
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄŸÄÿÿÿÿÿ
+c	java:S100G"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ÜÕ
+g
+java:S1450)"RRemove the "oee" field and declare it as a local variable in the relevant methods.(Ñäó
+V
+java:S2184A"@Cast one of the operands of this integer division to a "double".(ŒŒË
+s
+java:S1450!"XRemove the "goodCount" field and declare it as a local variable in the relevant methods.(¤¯ãëùÿÿÿÿ
+X
+java:S2184A"BCast one of the operands of this division operation to a "double".(ŒŒË

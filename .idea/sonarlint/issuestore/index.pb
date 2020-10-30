@@ -15,3 +15,5 @@ V
 &src/Domain/OptimalSpeedCalculator.java,8\2\827dff035c1028f85d99662be183e11cdafea84d
 D
 src/Domain/Read.java,c\3\c32597f7afbcba725b71dd3a368fbc9d4f09e7a2
+N
+src/Domain/OpcUAConnector.java,1\7\170f527d77d74226e20b643847d78f35b8190061
