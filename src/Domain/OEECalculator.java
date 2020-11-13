@@ -68,7 +68,7 @@ public class OEECalculator {
 
         }
 
-        private double CalculateOEE (){
+        protected double calculateOEE (){
             this.goodCount = this.totalCount - this.rejectedCount;
 
             this.plannedProductionTimeMinutes = this.shiftLengthMinutes - this.breaksMinutes;
