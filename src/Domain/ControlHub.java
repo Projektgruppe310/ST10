@@ -9,10 +9,11 @@ public class ControlHub {
 
         System.out.println("Please choose one of the following options (type the corresponding number): ");
         System.out.println("1. Read current machine values.");
-        System.out.println("2. Control the machine (Start/Stop/Etc.)");
-        System.out.println("3. Show OEE.");
-        System.out.println("4. Show optimal speed.");
-        System.out.println("5. Exit program.");
+        System.out.println("2. Create batch (customizable)");
+        System.out.println("3. Control the machine (Start/Stop/Etc.)");
+        System.out.println("4. Show OEE.");
+        System.out.println("5. Show optimal speed.");
+        System.out.println("6. Exit program.");
 
         Scanner s = new Scanner(System.in);
 
@@ -26,17 +27,22 @@ public class ControlHub {
                 return;
             }
             case 2:{
+                Write.createBatch();
+                return;
+
+            }
+            case 3:{
                 machineControl();
                 return;
             }
-            case 3:{
+            case 4:{
                 oeeCalculator();
                 return;
             }
-            case 4:{
+            case 5:{
                 optimalSpeed();
             }
-            case 5:{
+            case 6:{
                 s.close();
                 System.exit(0);
             }

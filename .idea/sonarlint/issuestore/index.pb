@@ -17,3 +17,9 @@ D
 src/Domain/Read.java,c\3\c32597f7afbcba725b71dd3a368fbc9d4f09e7a2
 N
 src/Domain/OpcUAConnector.java,1\7\170f527d77d74226e20b643847d78f35b8190061
+N
+src/Domain/MachineControl.java,d\0\d0f570097895b38f4bc8c3d580ea798c45f375da
+J
+src/Domain/ControlHub.java,4\c\4c6e571867676eb2bab0f477dbc2e9d82de3b439
+E
+src/Domain/Write.java,f\9\f95e9e13178f39501da6b538b201e8a0f8d946d6
