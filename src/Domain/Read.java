@@ -17,26 +17,36 @@ public class Read {
 
     /*skal forestille at være en metode der henter en specifik variabels værdi, metoden skal overloades, følgende
     er en liste af getter metoder til at hente disse*/
-    public static void getMachineSpeed() { readValue(6, "::Program:Cube.Status.MachSpeed", "machine speed" ); }
-    public static void getCurrentProduct() { readValue(6, "::Program:Cube.Admin.Parameter[0].Value", "current product" ); }
-    public static void getCurrentBatchId() { readValue(6, "::Program:Cube.Status.Parameter[0].Value", "current batch id"); }
-    public static void getCurrentQuantity() { readValue(6, "::Program:Cube.Status.Parameter[1].Value", "current quantity" ); }
-    public static void getProductsProduced(){ readValue(6, "::Program:Cube.Admin.ProdProcessedCount", "products produced"); }
-    public static void getFailedProductsProduced(){ readValue(6, "::Program:Cube.Admin.ProdDefectiveCount", "defective products produced"); }
+    public static void getMachineSpeed() {
+        readValue(6, "::Program:Cube.Status.MachSpeed", "machine speed" ); }
+    public static void getCurrentProduct() {
+        readValue(6, "::Program:Cube.Admin.Parameter[0].Value", "current product" ); }
+    public static void getCurrentBatchId() {
+        readValue(6, "::Program:Cube.Status.Parameter[0].Value", "current batch id"); }
+    public static void getCurrentQuantity() {
+        readValue(6, "::Program:Cube.Status.Parameter[1].Value", "current quantity" ); }
+    public static void getProductsProduced(){
+        readValue(6, "::Program:Cube.Admin.ProdProcessedCount", "products produced"); }
+    public static void getFailedProductsProduced(){
+        readValue(6, "::Program:Cube.Admin.ProdDefectiveCount", "defective products produced"); }
     public static void getStopReasonId(){
+
         readValue(6, "::Program:Cube.Admin.StopReason.ID", "stop reason id");
     }
     public static void getVibration(){
+
         readValue(6, "::Program:Cube.Status.Parameter[4].Value", "vibration");
     }
     public static void getHumidity(){
+
         readValue(6, "::Program:Cube.Status.Parameter[2].Value", "relative humidity");
     }
     public static void getTemperature(){
+
         readValue(6,"::Program:Cube.Status.Parameter[3].Value", "temperature");
     }
 
-    public static void getValues(){
+    public static void getAllValues(){
         getVibration();
         getHumidity();
         getTemperature();
@@ -53,12 +63,12 @@ public class Read {
     public static void readValue(int namespaceindex, String identifier, String parameterName) {
         //At first we try to establish a connection to the software simulator url, if it connects we want it to print all endpoints
         client = OpcUAConnector.getOpcUaClient();
-
-            /* to read the value from a specific node, we can provide the namespace index as
+        /* to read the value from a specific node, we can provide the namespace index as
             the first parameter, and the identifier string as the second parameter for the
-            specific nodeId. Here we want to read the value corresponding to the cube.command.Machspeed */
-            NodeId nodeId = new NodeId(namespaceindex, identifier);
+            specific nodeId*/
+        NodeId nodeId = new NodeId(namespaceindex, identifier);
         DataValue dataValue = null;
+
         try {
             dataValue = client.readValue(0, TimestampsToReturn.Both, nodeId).get();
         } catch (Exception e) {
