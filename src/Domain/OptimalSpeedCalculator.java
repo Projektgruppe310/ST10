@@ -18,4 +18,7 @@ public class OptimalSpeedCalculator {
     OptimalSpeedCalculator pilsner = new OptimalSpeedCalculator("Pilsner");
 
 
+    public OptimalSpeedCalculator() {
+
+    }
 }

@@ -50,6 +50,7 @@ public class ControlHub {
     }
 
     private void readValues() {
+        Read.getMachineSpeed();
 
     }
 
