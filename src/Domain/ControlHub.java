@@ -2,6 +2,7 @@ package Domain;
 
 import java.util.HashMap;
 import java.util.Scanner;
+import java.lang.String;
 
 public class ControlHub {
 
@@ -50,6 +51,7 @@ public class ControlHub {
     }
 
     private void readValues() {
+        Read.getValues();
 
     }
 

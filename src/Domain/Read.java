@@ -14,9 +14,6 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class Read {
-    public static void main(String[] args) {
-        getMachineSpeed();
-    }
 
     /*skal forestille at være en metode der henter en specifik variabels værdi, metoden skal overloades, følgende
     er en liste af getter metoder til at hente disse*/
@@ -37,6 +34,18 @@ public class Read {
     }
     public static void getTemperature(){
         readValue(6,"::Program:Cube.Status.Parameter[3].Value", "temperature");
+    }
+
+    public static void getValues(){
+        getVibration();
+        getHumidity();
+        getTemperature();
+        getMachineSpeed();
+        getCurrentQuantity();
+        getCurrentProduct();
+        getCurrentBatchId();
+        getFailedProductsProduced();
+        getProductsProduced();
     }
 
     private static OpcUaClient client = null;
@@ -65,7 +74,7 @@ public class Read {
             switch (parameterName){
                 case "machine speed":
                     float machineSpeed = (float) variant.getValue();
-                    System.out.println("machine speed = " + machineSpeed);
+                    System.out.println("Machine speed = " + machineSpeed);
                     break;
                 case "current product":
                     float currentProductFloat = (float) variant.getValue();
@@ -83,23 +92,20 @@ public class Read {
                     System.out.println("Current quantity being produced = " + currentQuantityInt);
                     break;
                 case "products produced":
-                    float productsProducedFloat = (float) variant.getValue();
-                    int productsProducedInt = (int) productsProducedFloat;
+                    int productsProducedInt = (int) variant.getValue();
                     System.out.println("Products produced = " + productsProducedInt);
                     break;
                 case "defective products produced":
-                    float defectiveProductsProducedFloat = (float) variant.getValue();
-                    int defectiveProductsProducedInt = (int) defectiveProductsProducedFloat;
+                    int defectiveProductsProducedInt = (int) variant.getValue();
                     System.out.println("Defective products produced = " + defectiveProductsProducedInt);
                     break;
                 case "stop reason id":
-                    float stopReasonIdFloat = (float) variant.getValue();
-                    int stopReasonIdInt = (int) stopReasonIdFloat;
+                    int stopReasonIdInt = (int)variant.getValue();
                     System.out.println("Stop reason id = " + stopReasonIdInt);
                     break;
                 case "vibration":
                     float vibration = (float) variant.getValue();
-                    System.out.println("vibration = " + vibration);
+                    System.out.println("Vibration = " + vibration);
                     break;
                 case "relative humidity":
                     float relativeHumidity = (float) variant.getValue();

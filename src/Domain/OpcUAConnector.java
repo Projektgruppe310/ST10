@@ -19,7 +19,7 @@ public class OpcUAConnector {
         try {
             org.apache.log4j.BasicConfigurator.configure(new NullAppender());
             List<EndpointDescription> endpoints = DiscoveryClient.getEndpoints("opc.tcp://127.0.0.1:4840").get();
-            EndpointDescription configPoint = EndpointUtil.updateUrl(endpoints.get(0), "192.168.0.122", 4840);
+            EndpointDescription configPoint = EndpointUtil.updateUrl(endpoints.get(0), "127.0.0.1", 4840);
 
             /*now we want to read specific nodes from the simulator
             firstly we create a OpcUaClientConfigBuilder object */
