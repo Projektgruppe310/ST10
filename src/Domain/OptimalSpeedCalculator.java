@@ -15,7 +15,6 @@ public class OptimalSpeedCalculator {
         HashMap<String, Integer> relation = new HashMap<>();
         this.productType = productType;
     }
-    OptimalSpeedCalculator pilsner = new OptimalSpeedCalculator("Pilsner");
 
 
     public OptimalSpeedCalculator() {
