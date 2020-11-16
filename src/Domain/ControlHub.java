@@ -9,10 +9,11 @@ public class ControlHub {
 
         System.out.println("Please choose one of the following options (type the corresponding number): ");
         System.out.println("1. Read current machine values.");
-        System.out.println("2. Control the machine (Start/Stop/Etc.)");
-        System.out.println("3. Show OEE.");
-        System.out.println("4. Show optimal speed.");
-        System.out.println("5. Exit program.");
+        System.out.println("2. Create batch (customizable)");
+        System.out.println("3. Control the machine (Start/Stop/Etc.)");
+        System.out.println("4. Show OEE.");
+        System.out.println("5. Show optimal speed.");
+        System.out.println("6. Exit program.");
 
         Scanner s = new Scanner(System.in);
 
@@ -23,20 +24,25 @@ public class ControlHub {
         switch (cmd){
             case 1:{
                 readValues();
-                return;
+                break;
             }
             case 2:{
-                machineControl();
-                return;
+                Write write = new Write();
+                write.createBatch();
+                break;
             }
             case 3:{
-                oeeCalculator();
-                return;
+                machineControl();
+                break;
             }
             case 4:{
-                optimalSpeed();
+                oeeCalculator();
+                break;
             }
             case 5:{
+                optimalSpeed();
+            }
+            case 6:{
                 s.close();
                 System.exit(0);
             }
@@ -104,7 +110,7 @@ public class ControlHub {
         beerMap.put(5, "Alcohol Free");
 
         if (beerMap.get(beer) != null){
-            OptimalSpeedCalculator osc = new OptimalSpeedCalculator();
+            OptimalSpeedCalculator osc = new OptimalSpeedCalculator((String) beerMap.get(beer));
             System.out.println("The optimal speed of the machine for " + beerMap.get(beer) + " beer is: "
             ); // Add optimal speed method
         }
