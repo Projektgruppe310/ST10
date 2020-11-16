@@ -24,20 +24,20 @@ public class ControlHub {
         switch (cmd){
             case 1:{
                 readValues();
-                return;
+                break;
             }
             case 2:{
-                Write.createBatch();
-                return;
-
+                Write write = new Write();
+                write.createBatch();
+                break;
             }
             case 3:{
                 machineControl();
-                return;
+                break;
             }
             case 4:{
                 oeeCalculator();
-                return;
+                break;
             }
             case 5:{
                 optimalSpeed();
@@ -110,7 +110,7 @@ public class ControlHub {
         beerMap.put(5, "Alcohol Free");
 
         if (beerMap.get(beer) != null){
-            OptimalSpeedCalculator osc = new OptimalSpeedCalculator();
+            OptimalSpeedCalculator osc = new OptimalSpeedCalculator((String) beerMap.get(beer));
             System.out.println("The optimal speed of the machine for " + beerMap.get(beer) + " beer is: "
             ); // Add optimal speed method
         }
