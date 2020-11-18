@@ -1,10 +1,13 @@
 
-„
-java:S1128"bRemove this unused import 'org.eclipse.milo.opcua.stack.core.types.enumerated.TimestampsToReturn'.(¢¨µ½ıÿÿÿÿ8È¶Ü.
-w
-java:S1450"URemove the "client" field and declare it as a local variable in the relevant methods.(öñÃâúÿÿÿÿ8ËÌÔÜ.
-\
-java:S1118	":Add a private constructor to hide the implicit public one.(¨¯èøúÿÿÿÿ8¼ÏÒÜ.
+Z	java:S1064"9Replace this use of System.out or System.err by a logger.(¶•‹µşÿÿÿÿ8¤¼Ô†İ.
+Z	java:S1060"9Replace this use of System.out or System.err by a logger.(Å åÉúÿÿÿÿ8¤¼Ô†İ.
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄŸÄÿÿÿÿÿ
+U	java:S1068"9Replace this use of System.out or System.err by a logger.(ÌÉä™8¤¼Ô†İ.
+Z	java:S106,"9Replace this use of System.out or System.err by a logger.(ëÕÔÿûÿÿÿÿ8¤¼Ô†İ.
+X	java:S125*"<This block of commented-out lines of code should be removed.(áœ‡á8¤¼Ô†İ.
+w
+java:S1450"URemove the "client" field and declare it as a local variable in the relevant methods.(öñÃâúÿÿÿÿ8úÚ†İ.
 V
-java:S1172"4Remove this unused method parameter "parameterName".(íßóûÿÿÿÿ8²¿¥Ü.
+java:S1172"4Remove this unused method parameter "parameterName".(ÆĞºÊüÿÿÿÿ8úÚ†İ.
+X
+java:S2696"6Make the enclosing method "static" or remove this set.(ƒÕ„­ûÿÿÿÿ8úÚ†İ.

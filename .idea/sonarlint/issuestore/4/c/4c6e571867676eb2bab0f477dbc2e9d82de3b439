@@ -1,49 +1,56 @@
 
-U	java:S106"9Replace this use of System.out or System.err by a logger.(‰¶¯8ğ’®Ü.
-T	java:S106,"9Replace this use of System.out or System.err by a logger.(åÊ“38ğ’®Ü.
-N	java:S106l"9Replace this use of System.out or System.err by a logger.(Å‡„‡
-S	java:S106Y"9Replace this use of System.out or System.err by a logger.(Şß—¦ÿÿÿÿÿ
-M	java:S106;"9Replace this use of System.out or System.err by a logger.(ßµŒ
-S	java:S106p"9Replace this use of System.out or System.err by a logger.(¨¹°°üÿÿÿÿ
-O
-java:S1199"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ğ’®Ü.
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(ŸÅú¼ûÿÿÿÿ8ğ’®Ü.
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(ßçÛ†úÿÿÿÿ8ğ’®Ü.
-S	java:S106="9Replace this use of System.out or System.err by a logger.(ıïÉ…ùÿÿÿÿ
-O
-java:S1199+"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ8ğ’®Ü.
-C
-java:S1481k"(Remove this unused "osc" local variable.(®üèŸıÿÿÿÿ
-O
-java:S1199 "-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8ğ’®Ü.
-S	java:S106?"9Replace this use of System.out or System.err by a logger.(Î”ß°úÿÿÿÿ
-S	java:S106Z"9Replace this use of System.out or System.err by a logger.(ŒïüÃøÿÿÿÿ
-J
-java:S1199$"-Extract this nested code block into a method.(ÎŞèº8ğ’®Ü.
-J
-java:S3740b"/Provide the parametrized type for this generic.(ËîÕ­úÿÿÿÿ
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(€ÿ øüÿÿÿÿ8ğ’®Ü.
-O
-java:S1199"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8ğ’®Ü.
-N	java:S106@"9Replace this use of System.out or System.err by a logger.(–ç„‰
-R
-java:S1854k"7Remove this useless assignment to local variable "osc".(®üèŸıÿÿÿÿ
-M	java:S106>"9Replace this use of System.out or System.err by a logger.(ŸÙ”]
-N	java:S106W"9Replace this use of System.out or System.err by a logger.(Ô®‡Ş
-N	java:S106["9Replace this use of System.out or System.err by a logger.(çö”Â
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄŸÄÿÿÿÿÿ
-h	java:S128'"LEnd this switch case with an unconditional break, return or throw statement.(Ó‚ï8ğ’®Ü.
-V	java:S125N"<This block of commented-out lines of code should be removed.(è¢…Åüÿÿÿÿ
-N	java:S106\"9Replace this use of System.out or System.err by a logger.(Ïê‘
-N	java:S106<"9Replace this use of System.out or System.err by a logger.(¦ÁÛ
-J
-java:S3740b"/Provide the parametrized type for this generic.(ËîÕ­úÿÿÿÿ
-h	java:S128$"LEnd this switch case with an unconditional break, return or throw statement.(ÎŞèº8ğ’®Ü.
-S	java:S106X"9Replace this use of System.out or System.err by a logger.(úŒÖøÿÿÿÿ
-S	java:S106V"9Replace this use of System.out or System.err by a logger.(¢ãøğúÿÿÿÿ
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(ÿõçßıÿÿÿÿ8ğ’®Ü.
-N	java:S106:"9Replace this use of System.out or System.err by a logger.(„‹Äì
-J
-java:S1199'"-Extract this nested code block into a method.(Ó‚ï8ğ’®Ü.
+S	java:S106v"9Replace this use of System.out or System.err by a logger.(¨¹°°üÿÿÿÿ
 U	java:S106
 "9Replace this use of System.out or System.err by a logger.(å‡€8ğ’®Ü.
+U	java:S106"9Replace this use of System.out or System.err by a logger.(õœ€ˆ8ğ’®Ü.
+O
+java:S1199"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ8ğ’®Ü.
+R
+java:S1854q"7Remove this useless assignment to local variable "osc".(™óÀúùÿÿÿÿ
+U	java:S106"9Replace this use of System.out or System.err by a logger.(‰¶¯8ğ’®Ü.
+U	java:S106"9Replace this use of System.out or System.err by a logger.(´Ü‹ù8ğ’®Ü.
+U	java:S106"9Replace this use of System.out or System.err by a logger.(Ôàò“8ğ’®Ü.
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(áİî£ùÿÿÿÿ8ğ’®Ü.
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄŸÄÿÿÿÿÿ
+U	java:S106"9Replace this use of System.out or System.err by a logger.(ğÚ§8œ¼Ô†İ.
+N	java:S106r"9Replace this use of System.out or System.err by a logger.(Å‡„‡
+Q
+java:S3740h"/Provide the parametrized type for this generic.(ËîÕ­úÿÿÿÿ8È‘Ú†İ.
+Q
+java:S3740h"/Provide the parametrized type for this generic.(ËîÕ­úÿÿÿÿ8È‘Ú†İ.
+O
+java:S1199"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ8È‘Ú†İ.
+O
+java:S1199""-Extract this nested code block into a method.(úÀôãùÿÿÿÿ8È‘Ú†İ.
+J
+java:S1199&"-Extract this nested code block into a method.(ÎŞèº8È‘Ú†İ.
+J
+java:S1199*"-Extract this nested code block into a method.(Ó‚ï8È‘Ú†İ.
+J
+java:S1199-"-Extract this nested code block into a method.(îÒ«Â8È‘Ú†İ.
+O
+java:S11991"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ8È‘Ú†İ.
+h	java:S128-"LEnd this switch case with an unconditional break, return or throw statement.(îÒ«Â8È‘Ú†İ.
+h	java:S128*"LEnd this switch case with an unconditional break, return or throw statement.(Ó‚ï8È‘Ú†İ.
+G
+java:S2440"%Remove this instantiation of "Write".(ËøÅÿÿÿÿÿ8È‘Ú†İ.
+W
+java:S2209"5Change this instance-reference to a static reference.(ŸòÕ‡ùÿÿÿÿ8È‘Ú†İ.
+T	java:S1062"9Replace this use of System.out or System.err by a logger.(åÊ“38È‘Ú†İ.
+U	java:S106@"9Replace this use of System.out or System.err by a logger.(„‹Äì8È‘Ú†İ.
+T	java:S106A"9Replace this use of System.out or System.err by a logger.(ßµŒ8È‘Ú†İ.
+U	java:S106B"9Replace this use of System.out or System.err by a logger.(¦ÁÛ8È‘Ú†İ.
+Z	java:S106C"9Replace this use of System.out or System.err by a logger.(ıïÉ…ùÿÿÿÿ8È‘Ú†İ.
+T	java:S106D"9Replace this use of System.out or System.err by a logger.(ŸÙ”]8È‘Ú†İ.
+Z	java:S106E"9Replace this use of System.out or System.err by a logger.(Î”ß°úÿÿÿÿ8È‘Ú†İ.
+U	java:S106F"9Replace this use of System.out or System.err by a logger.(–ç„‰8È‘Ú†İ.
+]	java:S125T"<This block of commented-out lines of code should be removed.(è¢…Åüÿÿÿÿ8È‘Ú†İ.
+Z	java:S106\"9Replace this use of System.out or System.err by a logger.(¢ãøğúÿÿÿÿ8È‘Ú†İ.
+U	java:S106]"9Replace this use of System.out or System.err by a logger.(Ô®‡Ş8È‘Ú†İ.
+Z	java:S106^"9Replace this use of System.out or System.err by a logger.(úŒÖøÿÿÿÿ8È‘Ú†İ.
+Z	java:S106_"9Replace this use of System.out or System.err by a logger.(Şß—¦ÿÿÿÿÿ8È‘Ú†İ.
+Z	java:S106`"9Replace this use of System.out or System.err by a logger.(ŒïüÃøÿÿÿÿ8È‘Ú†İ.
+U	java:S106a"9Replace this use of System.out or System.err by a logger.(çö”Â8È‘Ú†İ.
+U	java:S106b"9Replace this use of System.out or System.err by a logger.(Ïê‘8È‘Ú†İ.
+J
+java:S1481q"(Remove this unused "osc" local variable.(™óÀúùÿÿÿÿ8È‘Ú†İ.

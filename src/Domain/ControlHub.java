@@ -71,7 +71,6 @@ public class ControlHub {
 
         Scanner sc = new Scanner(System.in);
         int control = sc.nextInt();
-        sc.close();
 
         MachineControl machineControl = new MachineControl();
         machineControl.machineCntrlCmd(control);
