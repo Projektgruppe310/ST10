@@ -33,6 +33,11 @@
             <artifactId>sdk-client</artifactId>
             <version>0.5.0-M1</version>
         </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.11.jre7</version>
+        </dependency>
     </dependencies>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
