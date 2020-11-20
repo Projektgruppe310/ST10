@@ -1,4 +1,4 @@
 
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄŸÄÿÿÿÿÿ
 b
 java:S1128"@Remove this unused import 'org.apache.log4j.varia.NullAppender'.(Î´×øÿÿÿÿ8Å°³×.
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄŸÄÿÿÿÿÿ
