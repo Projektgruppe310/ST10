@@ -38,8 +38,11 @@ public class OptimalSpeedCalculator {
 
     public void returnOfTheNoob() {
 
-        PdfWriter pdfWriter = new PdfWriter();
-        pdfWriter.printer();
+      //  PdfWriter pdfWriter = new PdfWriter();
+      //  pdfWriter.printer();
+
+        Testclass testclass = new Testclass();
+        testclass.main();
     }
 
 }
