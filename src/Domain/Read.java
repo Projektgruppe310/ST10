@@ -1,5 +1,6 @@
 package Domain;
 
+import Persistence.Database;
 import org.apache.log4j.varia.NullAppender;
 import org.eclipse.milo.opcua.sdk.client.OpcUaClient;
 import org.eclipse.milo.opcua.sdk.client.api.config.OpcUaClientConfigBuilder;
@@ -126,7 +127,7 @@ public class Read {
                     System.out.println("Temperature = " + temperature);
                     break;
             }
-    }
 
+    }
 
 }

@@ -89,6 +89,10 @@ public class ControlHub {
     private void optimalSpeed() {
         // Needs to print out error for invalid commands
 
+        OptimalSpeedCalculator noob = new OptimalSpeedCalculator("1");
+        //noob.noobMethod();
+        noob.returnOfTheNoob();
+
         System.out.println("Which beer needs to be optimized (0-5)?");
         System.out.println("0 - Pilsner");
         System.out.println("1 - Wheat");
