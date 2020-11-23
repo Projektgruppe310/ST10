@@ -1,15 +1,15 @@
 
-N
-java:S1068"1Remove this unused "totalProducts" private field.(•ΐ§8¬ζ»‡ά.
+E
+java:S1068"/Remove this unused "productType" private field.(„Ϋρέ
 P
 java:S1068	"5Remove this unused "defectiveProducts" private field.(®κ?8¬ζ»‡ά.
-R
-java:S1068"0Remove this unused "curMachSpeed" private field.(Ϊκλÿÿÿÿÿ8¬ζ»‡ά.
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ΔΔÿÿÿÿÿ
 O
 java:S1481"-Remove this unused "relation" local variable.(ΕΛΖψÿÿÿÿ8¬ζ»‡ά.
 S
 java:S1068
 "6Remove this unused "acceptableProducts" private field.(ƒο„8¬ζ»‡ά.
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ΔΔÿÿÿÿÿ
-E
-java:S1068"/Remove this unused "productType" private field.(„Ϋρέ
+N
+java:S1068"1Remove this unused "totalProducts" private field.(•ΐ§8¬ζ»‡ά.
+R
+java:S1068"0Remove this unused "curMachSpeed" private field.(Ϊκλÿÿÿÿÿ8¬ζ»‡ά.

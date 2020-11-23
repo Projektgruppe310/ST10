@@ -1,38 +1,38 @@
 
-F
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ
-@
-java:S1181H"%Catch Exception instead of Throwable.(À˜§üÿÿÿÿ
-Q
-java:S2696"6Make the enclosing method "static" or remove this set.(ƒÕ„­ûÿÿÿÿ
-S	java:S106""9Replace this use of System.out or System.err by a logger.(Ú¢”Öşÿÿÿÿ
-H
-java:S11999"-Extract this nested code block into a method.(¦Ùï²ÿÿÿÿÿ
-_
-java:S1128"JRemove this unused import 'org.eclipse.milo.opcua.stack.core.UaException'.(àÔ—m
-H
-java:S11992"-Extract this nested code block into a method.(¨¾Ğôøÿÿÿÿ
-C
-java:S1199<"-Extract this nested code block into a method.(•ùİá
-Z
-java:S1128"DRemove this unused import 'java.util.concurrent.ExecutionException'.(¡£ØÍ
-@
-java:S1181 "%Catch Exception instead of Throwable.(À˜§üÿÿÿÿ
-S	java:S106"9Replace this use of System.out or System.err by a logger.(ÂÖÛ¬ıÿÿÿÿ
 ~
 java:S1128
 "cRemove this unused import 'org.eclipse.milo.opcua.stack.core.types.structured.EndpointDescription'.(ğ¸éîùÿÿÿÿ
 }
 java:S1128"bRemove this unused import 'org.eclipse.milo.opcua.sdk.client.api.config.OpcUaClientConfigBuilder'.(òıÓòûÿÿÿÿ
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄŸÄÿÿÿÿÿ
-H
-java:S1199/"-Extract this nested code block into a method.(Í‡¬‰úÿÿÿÿ
-f
-java:S1128"PRemove this unused import 'org.eclipse.milo.opcua.stack.client.DiscoveryClient'.(ˆÎÆ´
-f	java:S128/"LEnd this switch case with an unconditional break, return or throw statement.(Í‡¬‰úÿÿÿÿ
+_
+java:S1128"JRemove this unused import 'org.eclipse.milo.opcua.stack.core.UaException'.(àÔ—m
 p
 java:S1450"URemove the "client" field and declare it as a local variable in the relevant methods.(öñÃâúÿÿÿÿ
+Q
+java:S2696"6Make the enclosing method "static" or remove this set.(ƒÕ„­ûÿÿÿÿ
 H
-java:S11996"-Extract this nested code block into a method.(¹¨Ù¯ùÿÿÿÿ
+java:S11999"-Extract this nested code block into a method.(¦Ùï²ÿÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄŸÄÿÿÿÿÿ
+Z
+java:S1128"DRemove this unused import 'java.util.concurrent.ExecutionException'.(¡£ØÍ
+F
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ
 C
 java:S1199@"-Extract this nested code block into a method.(Çñ»Õ
+@
+java:S1181H"%Catch Exception instead of Throwable.(À˜§üÿÿÿÿ
+H
+java:S11996"-Extract this nested code block into a method.(¹¨Ù¯ùÿÿÿÿ
+f
+java:S1128"PRemove this unused import 'org.eclipse.milo.opcua.stack.client.DiscoveryClient'.(ˆÎÆ´
+S	java:S106""9Replace this use of System.out or System.err by a logger.(Ú¢”Öşÿÿÿÿ
+H
+java:S11992"-Extract this nested code block into a method.(¨¾Ğôøÿÿÿÿ
+@
+java:S1181 "%Catch Exception instead of Throwable.(À˜§üÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ÂÖÛ¬ıÿÿÿÿ
+H
+java:S1199/"-Extract this nested code block into a method.(Í‡¬‰úÿÿÿÿ
+C
+java:S1199<"-Extract this nested code block into a method.(•ùİá
+f	java:S128/"LEnd this switch case with an unconditional break, return or throw statement.(Í‡¬‰úÿÿÿÿ
