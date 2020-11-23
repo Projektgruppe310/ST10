@@ -9,6 +9,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="noob" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.milo:stack-client:0.5.0-M1" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.milo:stack-core:0.5.0-M1" level="project" />
     <orderEntry type="library" name="Maven: org.bouncycastle:bcprov-jdk15on:1.61" level="project" />
@@ -78,6 +79,5 @@
     <orderEntry type="library" name="Maven: org.eclipse.milo:sdk-core:0.5.0-M1" level="project" />
     <orderEntry type="library" name="Maven: org.postgresql:postgresql:42.2.11.jre7" level="project" />
     <orderEntry type="library" name="Maven: com.itextpdf:itextpdf:5.5.10" level="project" />
-    <orderEntry type="library" name="noob" level="project" />
   </component>
 </module>

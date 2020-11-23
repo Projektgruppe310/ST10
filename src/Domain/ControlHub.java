@@ -71,10 +71,14 @@ public class ControlHub {
 
         Scanner sc = new Scanner(System.in);
         int control = sc.nextInt();
-        sc.close();
 
         MachineControl machineControl = new MachineControl();
         machineControl.machineCntrlCmd(control);
+
+        if (control == 2){
+            MachineValues machineValues = new MachineValues();
+            machineValues.machineStarted();
+        }
 
     }
 
