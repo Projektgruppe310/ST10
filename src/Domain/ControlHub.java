@@ -41,6 +41,7 @@ public class ControlHub {
             }
             case 5:{
                 optimalSpeed();
+                break;
             }
             case 6:{
                 s.close();
@@ -85,8 +86,9 @@ public class ControlHub {
     private void oeeCalculator() {
         //Needs to include values needed for constructor.
 
-        //OEECalculator oee = new OEECalculator();
-        //System.out.println("The machine's OEE is: " + oee.calculateOEE());
+        //TEST
+        OEECalculator oee = new OEECalculator(1, 1000, 20);
+        System.out.println("The machine's OEE is: " + oee.calculateOEE() + " for a total count of 1000, rejected count of 20, shift length of 8 hours with one 30 minute break.");
 
     }
 
