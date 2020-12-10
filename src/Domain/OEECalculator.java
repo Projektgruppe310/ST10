@@ -26,7 +26,7 @@ public class OEECalculator {
 
 
         // 0 Pilsner, 1 Wheat, 2 IPA, 3 Stout, 4 Ale, 5 Alcohol Free
-        private String beerType;
+        private int beerType;
 
         private int totalCount;
         private int rejectedCount;
@@ -41,31 +41,38 @@ public class OEECalculator {
         private double oee;
 
         // Is it better if shift length and breaks are hardcoded?
-        public OEECalculator(String beerType, int totalCount, int rejectedCount, double shiftLengthMinutes, double breaksMinutes) {
+        /*
+        public OEECalculator(int beerType, int totalCount, int rejectedCount, double shiftLengthMinutes, double breaksMinutes) {
             this.beerType = beerType;
             this.totalCount = totalCount;
             this.rejectedCount = rejectedCount;
             this.shiftLengthMinutes = shiftLengthMinutes;
             this.breaksMinutes = breaksMinutes;
+        }*/
+
+        public OEECalculator(int beerType, int totalCount, int rejectedCount) {
+            this.beerType = beerType;
+            this.totalCount = totalCount;
+            this.rejectedCount = rejectedCount;
+            this.shiftLengthMinutes = 480;
+            this.breaksMinutes = 30;
         }
 
-        private double idealCycleTime(String beerType) {
-            HashMap<String, Integer> maximumSpeed = new HashMap<>();
+
+        private double idealCycleTime(int beerType) {
+            HashMap<Integer, Integer> maximumSpeed = new HashMap<>();
 
             // 0 Pilsner, 1 Wheat, 2 IPA, 3 Stout, 4 Ale, 5 Alcohol Free
-            maximumSpeed.put("0", 600);
-            maximumSpeed.put("1", 300);
-            maximumSpeed.put("2", 150);
-            maximumSpeed.put("3", 200);
-            maximumSpeed.put("4", 100);
-            maximumSpeed.put("5", 125);
+            maximumSpeed.put(0, 600);
+            maximumSpeed.put(1, 300);
+            maximumSpeed.put(2, 150);
+            maximumSpeed.put(3, 200);
+            maximumSpeed.put(4, 100);
+            maximumSpeed.put(5, 125);
 
             int beersPerMinute = maximumSpeed.get(beerType);
-
-            this.idealCycleTimeSeconds = 60 / beersPerMinute;
-
+            this.idealCycleTimeSeconds = (double)60 / beersPerMinute;
             return this.idealCycleTimeSeconds;
-
         }
 
         protected double calculateOEE (){
@@ -73,7 +80,6 @@ public class OEECalculator {
 
             this.plannedProductionTimeMinutes = this.shiftLengthMinutes - this.breaksMinutes;
             this.oee = ((double)this.goodCount * idealCycleTime(this.beerType)) / this.plannedProductionTimeMinutes;
-
             return this.oee;
         }
     }

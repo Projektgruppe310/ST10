@@ -41,6 +41,7 @@ public class ControlHub {
             }
             case 5:{
                 optimalSpeed();
+                break;
             }
             case 6:{
                 s.close();
@@ -75,18 +76,28 @@ public class ControlHub {
         MachineControl machineControl = new MachineControl();
         machineControl.machineCntrlCmd(control);
 
+        if (control == 2){
+            MachineValues machineValues = new MachineValues();
+            machineValues.machineStarted();
+        }
+
     }
 
     private void oeeCalculator() {
         //Needs to include values needed for constructor.
 
-        //OEECalculator oee = new OEECalculator();
-        //System.out.println("The machine's OEE is: " + oee.calculateOEE());
+        //TEST
+        OEECalculator oee = new OEECalculator(1, 1000, 20);
+        System.out.println("The machine's OEE is: " + oee.calculateOEE() + " for a total count of 1000, rejected count of 20, shift length of 8 hours with one 30 minute break.");
 
     }
 
     private void optimalSpeed() {
         // Needs to print out error for invalid commands
+
+        OptimalSpeedCalculator noob = new OptimalSpeedCalculator("1");
+        //noob.noobMethod();
+        noob.returnOfTheNoob();
 
         System.out.println("Which beer needs to be optimized (0-5)?");
         System.out.println("0 - Pilsner");
