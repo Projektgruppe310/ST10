@@ -1,9 +1,10 @@
 
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄŸÄÿÿÿÿÿ
-S	java:S106#"9Replace this use of System.out or System.err by a logger.(©şêÜúÿÿÿÿ
 P
 java:S1118":Add a private constructor to hide the implicit public one.(ÿ½®“
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄŸÄÿÿÿÿÿ
 h
 java:S1104"RMake client a static final constant or non-public and provide accessors if needed.(ñ©ç×
+]	java:S125"<This block of commented-out lines of code should be removed.(®âÄˆùÿÿÿÿ8®‘Ú†İ.
+S	java:S106)"9Replace this use of System.out or System.err by a logger.(©şêÜúÿÿÿÿ
 B
 java:S1444",Make this "public static client" field final(ñ©ç×
