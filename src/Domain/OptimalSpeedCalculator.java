@@ -1,11 +1,8 @@
 package Domain;
 
-import Persistence.Database;
 import Persistence.PdfWriter;
 import Persistence.Testclass;
-import org.bouncycastle.util.test.Test;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class OptimalSpeedCalculator {

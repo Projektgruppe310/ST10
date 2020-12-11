@@ -1,5 +1,7 @@
 package Domain;
 
+import Persistence.DatabaseRead;
+
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -13,7 +15,8 @@ public class ControlHub {
         System.out.println("3. Control the machine (Start/Stop/Etc.)");
         System.out.println("4. Show OEE.");
         System.out.println("5. Show optimal speed.");
-        System.out.println("6. Exit program.");
+        System.out.println("6. Find batch (requires Batch ID)");
+        System.out.println("7. Exit program.");
 
         Scanner s = new Scanner(System.in);
 
@@ -44,6 +47,10 @@ public class ControlHub {
                 break;
             }
             case 6:{
+                findBatch();
+                break;
+            }
+            case 7:{
                 s.close();
                 System.exit(0);
             }
@@ -52,13 +59,13 @@ public class ControlHub {
             }
         }
 
+        System.out.println("");
         cliCommands();
 
     }
 
     private void readValues() {
         Read.getAllValues();
-
     }
 
     private void machineControl() {
@@ -111,7 +118,7 @@ public class ControlHub {
         int beer = scanner.nextInt();
 
 
-        HashMap beerMap = new HashMap();
+        HashMap<Integer, String> beerMap = new HashMap<>();
         beerMap.put(0, "Pisner");
         beerMap.put(1, "Wheat");
         beerMap.put(2, "IPA");
@@ -128,6 +135,26 @@ public class ControlHub {
             System.out.println("Invalid input.");
         }
         scanner.close();
+    }
+
+    private void findBatch(){
+        System.out.println("");
+        System.out.println("Please input the Batch ID: ");
+        Scanner scanner = new Scanner(System.in);
+        String batchID = scanner.next();
+
+        HashMap<String, String> batch;
+
+        DatabaseRead databaseRead = new DatabaseRead();
+        batch = databaseRead.findBatch(batchID);
+
+        if (batch.isEmpty()){
+            System.out.println("Batch ID not found.");
+        }
+
+        System.out.println("");
+        System.out.println("Batch report for Batch ID " + batchID + ": ");
+        System.out.println(batch);
     }
 
 }

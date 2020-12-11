@@ -38,6 +38,8 @@ public class OEECalculator {
         private double breaksMinutes;
         private double plannedProductionTimeMinutes;
 
+        private double shiftLengthSeconds;
+
         private double oee;
 
         // Is it better if shift length and breaks are hardcoded?
@@ -56,6 +58,13 @@ public class OEECalculator {
             this.rejectedCount = rejectedCount;
             this.shiftLengthMinutes = 480;
             this.breaksMinutes = 30;
+        }
+
+        public OEECalculator(int beerType, int totalCount, int rejectedCount, double shiftLengthSeconds){
+            this.beerType = beerType;
+            this.totalCount = totalCount;
+            this.rejectedCount = rejectedCount;
+            this.shiftLengthSeconds = shiftLengthSeconds;
         }
 
 
@@ -80,6 +89,13 @@ public class OEECalculator {
 
             this.plannedProductionTimeMinutes = this.shiftLengthMinutes - this.breaksMinutes;
             this.oee = ((double)this.goodCount * idealCycleTime(this.beerType)) / this.plannedProductionTimeMinutes;
+            return this.oee;
+        }
+
+        protected double calculateLiveOEE (){
+            this.goodCount = this.totalCount - this.rejectedCount;
+
+            this.oee = ((double)this.goodCount * idealCycleTime(this.beerType)) / (this.shiftLengthSeconds/60);
             return this.oee;
         }
     }
