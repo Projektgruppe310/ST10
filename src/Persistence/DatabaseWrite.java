@@ -2,12 +2,10 @@ package Persistence;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.HashMap;
 
-public class Database {
+public class DatabaseWrite {
 
     static Connection connection = null;
 
@@ -53,6 +51,7 @@ public class Database {
     }
 
     private boolean insertStateTimes() { //HashMap stateTimes
+
         try {
             PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO state_times (deactived, clearing, stopped, starting, idle, suspended, execute, stopping, aborting, aborted, resetting, completing, complete, deactivating, activating) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
@@ -85,6 +84,7 @@ public class Database {
     }
 
     private boolean insertTemp(ArrayList<Integer> possibleColumns, HashMap tempValues) {
+
         try {
             PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO temperatures (col0000, col0010, col0020, col0030, col0040, col0050, col0060, col0070, col0080, col0090, col0100, col0110, col0120, col0180, col0240, col0300, col0360, col0420, col0480, col0540, col0600) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
@@ -114,7 +114,7 @@ public class Database {
     }
 
     private boolean insertVibration(ArrayList<Integer> possibleColumns, HashMap vibrationValues) {
-        
+
         try {
             PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO vibrations (col0000, col0010, col0020, col0030, col0040, col0050, col0060, col0070, col0080, col0090, col0100, col0110, col0120, col0180, col0240, col0300, col0360, col0420, col0480, col0540, col0600) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
@@ -144,7 +144,7 @@ public class Database {
     private boolean insertBatch(HashMap batchValues) {
 
         try {
-            PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO batch (batch_date, product_type, acceptable_amount_produced, defect_amount_produced, total_amount_produced, batch_duration_seconds, oee, avg_temperature, temperature_logs, avg_humidity, humidity_logs, avg_vibration, vibration_logs, time_in_states) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO batch (batch_date, product_type, acceptable_amount_produced, defect_amount_produced, total_amount_produced, batch_duration_seconds, oee, avg_temperature, temperature_logs, avg_humidity, humidity_logs, avg_vibration, vibration_logs, time_in_states, real_batch_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
             insertStatement.setString(1, (String) batchValues.get("Batch Date"));                        //"INSERT INTO batch (batch_date)                   VALUES ("2020-20-11")"
             insertStatement.setObject(2, batchValues.get("Product Type"), Types.OTHER);                       //"INSERT INTO batch (product_type)                 VALUES ("1")"      1=PILSNER,  2=WHEAT...('PILSNER', 'WHEAT', 'IPA', 'STOUT', 'ALE', 'ALCOHOL_FREE');
@@ -160,6 +160,7 @@ public class Database {
             insertStatement.setDouble(12, Double.parseDouble((String) batchValues.get("Avg Vibration")));
             insertStatement.setInt(13, 1);
             insertStatement.setInt(14, 1);                                               //"INSERT INTO batch (time_in_states)               VALUES ("1")"
+            insertStatement.setString(15, (String) batchValues.get("Batch ID"));
 
             //Insert to database
             insertStatement.execute();

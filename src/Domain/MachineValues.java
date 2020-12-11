@@ -1,12 +1,11 @@
 package Domain;
 
-import Persistence.Database;
+import Persistence.DatabaseWrite;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Scanner;
 
 public class MachineValues {
 
@@ -130,8 +129,8 @@ public class MachineValues {
         // Prints HashMap with all the values
         System.out.println(machineValues);
 
-        Database database = new Database();
-        database.receiveData(machineValues);
+        DatabaseWrite databaseWrite = new DatabaseWrite();
+        databaseWrite.receiveData(machineValues);
 
     }
 

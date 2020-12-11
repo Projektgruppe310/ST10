@@ -100,6 +100,7 @@ Activating FLOAT NOT NULL
 
 CREATE TABLE Batch(
 batch_id SERIAL PRIMARY KEY,
+real_batch_id VARCHAR(50),
 batch_date VARCHAR(30) NOT NULL,
 product_type beers NOT NULL,
 Acceptable_amount_produced FLOAT,
