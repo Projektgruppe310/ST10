@@ -153,7 +153,7 @@ public class ControlHub {
         }
 
         System.out.println("");
-        System.out.println("Batch report for Batch ID 13: ");
+        System.out.println("Batch report for Batch ID " + batchID + ": ");
         System.out.println(batch);
     }
 

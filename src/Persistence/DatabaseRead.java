@@ -25,6 +25,7 @@ public class DatabaseRead {
                 batchMap.put("Batch ID", rs.getString("real_batch_id"));
                 batchMap.put("Batch Date", rs.getString("batch_date"));
                 batchMap.put("Product Type", rs.getString("product_type"));
+                batchMap.put("Machine Speed", rs.getString("machine_speed"));
                 batchMap.put("Acceptable Amount Produced", rs.getString("acceptable_amount_produced"));
                 batchMap.put("Defect Amount Produced", rs.getString("defect_amount_produced"));
                 batchMap.put("Total Amount Produced", rs.getString("total_amount_produced"));

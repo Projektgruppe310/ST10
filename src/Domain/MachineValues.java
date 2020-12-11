@@ -37,6 +37,7 @@ public class MachineValues {
 
         machineValues.put("Batch ID", Read.getCurrentBatchId());
         machineValues.put("Batch Date", dateFormat.format(date));
+        machineValues.put("Machine Speed", Read.getMachineSpeed());
 
         // Quick solution for PSQLException about enum beers
         HashMap<String, String> productTypes = new HashMap<>();

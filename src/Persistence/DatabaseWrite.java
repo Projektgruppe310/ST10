@@ -144,7 +144,9 @@ public class DatabaseWrite {
     private boolean insertBatch(HashMap batchValues) {
 
         try {
-            PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO batch (batch_date, product_type, acceptable_amount_produced, defect_amount_produced, total_amount_produced, batch_duration_seconds, oee, avg_temperature, temperature_logs, avg_humidity, humidity_logs, avg_vibration, vibration_logs, time_in_states, real_batch_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO batch (batch_date, product_type, acceptable_amount_produced, defect_amount_produced, total_amount_produced, " +
+                    "batch_duration_seconds, oee, avg_temperature, temperature_logs, avg_humidity, humidity_logs, avg_vibration, vibration_logs, " +
+                    "time_in_states, real_batch_id, machine_speed) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
             insertStatement.setString(1, (String) batchValues.get("Batch Date"));                        //"INSERT INTO batch (batch_date)                   VALUES ("2020-20-11")"
             insertStatement.setObject(2, batchValues.get("Product Type"), Types.OTHER);                       //"INSERT INTO batch (product_type)                 VALUES ("1")"      1=PILSNER,  2=WHEAT...('PILSNER', 'WHEAT', 'IPA', 'STOUT', 'ALE', 'ALCOHOL_FREE');
@@ -161,6 +163,7 @@ public class DatabaseWrite {
             insertStatement.setInt(13, 1);
             insertStatement.setInt(14, 1);                                               //"INSERT INTO batch (time_in_states)               VALUES ("1")"
             insertStatement.setString(15, (String) batchValues.get("Batch ID"));
+            insertStatement.setDouble(16, Double.parseDouble((String) batchValues.get("Machine Speed")));
 
             //Insert to database
             insertStatement.execute();
