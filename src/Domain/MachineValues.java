@@ -110,7 +110,7 @@ public class MachineValues {
 
         String totalAmount = Read.getProductsProduced();
         String defectAmount = Read.getFailedProductsProduced();
-        Double batchDurationSeconds = System.currentTimeMillis() - startTime / 1000D;
+        Double batchDurationSeconds = (System.currentTimeMillis() - startTime) / 1000D;
 
         machineValues.put("End Humidity", Read.getHumidity());
         machineValues.put("End Temperature", Read.getTemperature());
@@ -120,11 +120,9 @@ public class MachineValues {
         machineValues.put("Total Amount Produced", Read.getCurrentQuantity());
         machineValues.put("Batch Duration seconds", String.valueOf(batchDurationSeconds));
 
-        OEECalculator batchOEE = new OEECalculator(Integer.parseInt(currentProduct),
-                Integer.parseInt(totalAmount),
-                Integer.parseInt(defectAmount),
-                batchDurationSeconds);
-        machineValues.put("OEE", String.valueOf(batchOEE.calculateOEE()));
+        OEECalculator batchOEE = new OEECalculator(Integer.parseInt(currentProduct), Integer.parseInt(totalAmount),
+                Integer.parseInt(defectAmount), batchDurationSeconds);
+        machineValues.put("OEE", String.valueOf(batchOEE.calculateLiveOEE()));
         machineValues.put("Avg Temperature", temperatureAvg(tempArray));
         machineValues.put("Avg Humidity", humidityAvg(humidityArray));
         machineValues.put("Avg Vibration", vibrationAvg(vibrationArray));
