@@ -15,6 +15,7 @@ public class Database {
     public void receiveData(HashMap machineValues){
         insertHum(machineValues);
         insertTemp(machineValues);
+        insertVibration(machineValues);
         insertStateTimes();
         insertBatch(machineValues);
     }
@@ -28,7 +29,7 @@ public class Database {
 
         try {
             this.connection = DatabaseAccess.getConnection();
-            PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO humidities (col0010, col0020, col0030, col0040, col0050, col0100) VALUES (?,?,?,?,?,?)");
+            PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO humidities (col0010, col0020, col0030, col0040) VALUES (?,?,?,?)");
 
 
             //Insert data
@@ -39,19 +40,16 @@ public class Database {
             insertStatement.setFloat(5, 9005);   //"INSERT INTO humidities (col0050) VALUES ("9005")"      humvalues.get(4)
             insertStatement.setFloat(6, 9006);   //"INSERT INTO humidities (col0100) VALUES ("9006")"      humvalues.get(5)*/
 
-            insertStatement.setFloat(1, Float.parseFloat((String) humValues.get("Start Humidity")));        //"INSERT INTO humidities (col0010) VALUES humvalues.get()
-            insertStatement.setFloat(2, Float.parseFloat((String) humValues.get("End Humidity")));          //"INSERT INTO humidities (col0020) VALUES humvalues.get()
-            insertStatement.setFloat(3, Float.parseFloat((String) humValues.get("Humidity 00 seconds")));   //"INSERT INTO humidities (col0030) VALUES humvalues.get()
+            insertStatement.setFloat(1, Float.parseFloat((String) humValues.get("Humidity 00 seconds")));   //"INSERT INTO humidities (col0030) VALUES humvalues.get()
             if(humValues.containsKey("Humidity 10 seconds")){
-                insertStatement.setFloat(4, Float.parseFloat((String) humValues.get("Humidity 10 seconds")));}   //"INSERT INTO humidities (col0040) VALUES humvalues.get()
-            else insertStatement.setFloat(4, 0);
+                insertStatement.setFloat(2, Float.parseFloat((String) humValues.get("Humidity 10 seconds")));}   //"INSERT INTO humidities (col0040) VALUES humvalues.get()
+            else insertStatement.setFloat(2, 0);
             if(humValues.containsKey("Humidity 20 seconds")){
-                insertStatement.setFloat(5, Float.parseFloat((String) humValues.get("Humidity 20 seconds")));}   //"INSERT INTO humidities (col0050) VALUES humvalues.get()
-            else insertStatement.setFloat(5, 0);
-            insertStatement.setFloat(5, 9005);
+                insertStatement.setFloat(3, Float.parseFloat((String) humValues.get("Humidity 20 seconds")));}   //"INSERT INTO humidities (col0050) VALUES humvalues.get()
+            else insertStatement.setFloat(3, 0);
             if(humValues.containsKey("Humidity 30 seconds")){
-            insertStatement.setFloat(6, Float.parseFloat((String) humValues.get("Humidity 30 seconds"))); }  //"INSERT INTO humidities (col0100) VALUES humvalues.get()
-            else insertStatement.setFloat(6, 0);
+            insertStatement.setFloat(4, Float.parseFloat((String) humValues.get("Humidity 30 seconds"))); }  //"INSERT INTO humidities (col0100) VALUES humvalues.get()
+            else insertStatement.setFloat(4, 0);
             //Insert to database
             insertStatement.execute();
 
@@ -97,7 +95,7 @@ public class Database {
 
     private boolean insertTemp(HashMap tempValues) {
         try {
-            PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO temperatures (col0010, col0020, col0030, col0040, col0050, col0100) VALUES (?,?,?,?,?,?)");
+            PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO temperatures (col0000, col0010, col0020, col0030) VALUES (?,?,?,?)");
 
 
             //Insert data
@@ -108,18 +106,42 @@ public class Database {
             insertStatement.setFloat(5, (float) 80.113);    //"INSERT INTO temperatures (col0050) VALUES ("9005")"      tempValues.get(4)
             insertStatement.setDouble(6, 4.20);        //"INSERT INTO temperatures (col0100) VALUES ("9006")"      tempValues.get(5)        */
 
-            insertStatement.setFloat(1, Float.parseFloat((String) tempValues.get("Start Temperature")));        //"INSERT INTO temperature (col0010) VALUES tempValues.get()
-            insertStatement.setFloat(2, Float.parseFloat((String) tempValues.get("End Temperature")));          //"INSERT INTO temperature (col0020) VALUES tempValues.get()
-            insertStatement.setFloat(3, Float.parseFloat((String) tempValues.get("Temperature 00 seconds")));
+            insertStatement.setFloat(1, Float.parseFloat((String) tempValues.get("Temperature 00 seconds")));
             if(tempValues.containsKey("Temperature 10 seconds")){
-            insertStatement.setFloat(4, Float.parseFloat((String) tempValues.get("Temperature 10 seconds")));}   //"INSERT INTO temperature (col0040) VALUES tempValues.get()
-            else insertStatement.setFloat(4, (float) 0);
+            insertStatement.setFloat(2, Float.parseFloat((String) tempValues.get("Temperature 10 seconds")));}   //"INSERT INTO temperature (col0040) VALUES tempValues.get()
+            else insertStatement.setFloat(2, (float) 0);
             if(tempValues.containsKey("Temperature 20 seconds")){
-            insertStatement.setFloat(5, Float.parseFloat((String) tempValues.get("Temperature 20 seconds"))); }  //"INSERT INTO temperature (col0050) VALUES tempValues.get()
-            else insertStatement.setFloat(5, (float) 0);
+            insertStatement.setFloat(3, Float.parseFloat((String) tempValues.get("Temperature 20 seconds"))); }  //"INSERT INTO temperature (col0050) VALUES tempValues.get()
+            else insertStatement.setFloat(3, (float) 0);
             if(tempValues.containsKey("Temperature 30 seconds")){
-            insertStatement.setFloat(6, Float.parseFloat((String) tempValues.get("Temperature 30 seconds")));}   //"INSERT INTO temperature (col0100) VALUES tempValues.get()
-            else insertStatement.setFloat(6, (float) 0);
+            insertStatement.setFloat(4, Float.parseFloat((String) tempValues.get("Temperature 30 seconds")));}   //"INSERT INTO temperature (col0100) VALUES tempValues.get()
+            else insertStatement.setFloat(4, (float) 0);
+
+            //Insert to database
+            insertStatement.execute();
+
+            return true;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
+
+    private boolean insertVibration(HashMap vibrationValues) {
+        try {
+            PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO vibrations (col0000, col0010, col0020, col0030) VALUES (?,?,?,?)");
+
+            insertStatement.setFloat(1, Float.parseFloat((String) vibrationValues.get("Vibration 00 seconds")));
+            if(vibrationValues.containsKey("Vibration 10 seconds")){
+                insertStatement.setFloat(2, Float.parseFloat((String) vibrationValues.get("Vibration 10 seconds")));}
+            else insertStatement.setFloat(2, (float) 0);
+            if(vibrationValues.containsKey("Vibration 20 seconds")){
+                insertStatement.setFloat(3, Float.parseFloat((String) vibrationValues.get("Vibration 20 seconds"))); }
+            else insertStatement.setFloat(3, (float) 0);
+            if(vibrationValues.containsKey("Vibration 30 seconds")){
+                insertStatement.setFloat(4, Float.parseFloat((String) vibrationValues.get("Vibration 30 seconds")));}
+            else insertStatement.setFloat(4, (float) 0);
 
             //Insert to database
             insertStatement.execute();
@@ -136,7 +158,7 @@ public class Database {
 
 
         try {
-            PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO batch (batch_date, product_type, acceptable_amount_produced, defect_amount_produced, total_amount_produced, temperature_logs, humidity_logs, time_in_states) VALUES (?,?,?,?,?,?,?,?)");
+            PreparedStatement insertStatement = connection.prepareStatement("INSERT INTO batch (batch_date, product_type, acceptable_amount_produced, defect_amount_produced, total_amount_produced, batch_duration_seconds, oee, avg_temperature, temperature_logs, avg_humidity, humidity_logs, avg_vibration, vibration_logs, time_in_states) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             //Insert data
             /*insertStatement.setDate(1, Date.valueOf("2020-11-20"));                        //"INSERT INTO batch (batch_date)                   VALUES ("2020-20-11")"
             insertStatement.setObject(2, "PILSNER", Types.OTHER);                       //"INSERT INTO batch (product_type)                 VALUES ("1")"      1=PILSNER,  2=WHEAT...('PILSNER', 'WHEAT', 'IPA', 'STOUT', 'ALE', 'ALCOHOL_FREE');
@@ -152,9 +174,15 @@ public class Database {
             insertStatement.setDouble(3, Double.parseDouble((String) batchValues.get("Acceptable Amount Produced")));                                          //"INSERT INTO batch (acceptable_amount_produced)   VALUES ("800")"
             insertStatement.setDouble(4, Double.parseDouble((String) batchValues.get("Defect Amount Produced")));                                          //"INSERT INTO batch (defect_amount_produced)       VALUES ("9004")"
             insertStatement.setDouble(5, Double.parseDouble((String) batchValues.get("Total Amount Produced")));                                         //"INSERT INTO batch (total_amount_produced)        VALUES ("9005")"
-            insertStatement.setInt(6, 1);                                               //"INSERT INTO batch (temperature_logs)             VALUES ("1")"
-            insertStatement.setInt(8, 1);                                               //"INSERT INTO batch (humidity_logs)                VALUES ("1")"
-            insertStatement.setInt(7, 1);                                               //"INSERT INTO batch (time_in_states)               VALUES ("1")"
+            insertStatement.setDouble(6, Double.parseDouble((String) batchValues.get("Batch Duration seconds")));
+            insertStatement.setDouble(7, Double.parseDouble((String) batchValues.get("OEE")));
+            insertStatement.setDouble(8, Double.parseDouble((String) batchValues.get("Avg Temperature")));
+            insertStatement.setInt(9, 1);                                               //"INSERT INTO batch (temperature_logs)             VALUES ("1")"
+            insertStatement.setDouble(10, Double.parseDouble((String) batchValues.get("Avg Humidity")));
+            insertStatement.setInt(11, 1);                                               //"INSERT INTO batch (humidity_logs)                VALUES ("1")"
+            insertStatement.setDouble(12, Double.parseDouble((String) batchValues.get("Avg Vibration")));
+            insertStatement.setInt(13, 1);
+            insertStatement.setInt(14, 1);                                               //"INSERT INTO batch (time_in_states)               VALUES ("1")"
 
 
             //Insert to database
