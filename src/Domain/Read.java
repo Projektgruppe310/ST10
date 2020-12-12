@@ -31,8 +31,10 @@ public class Read {
     public static String getTemperature(){
         return readValue(6,"::Program:Cube.Status.Parameter[3].Value", "temperature"); }
     public static String getCurrentState(){
-        return readValue(6,"::Program:Cube.Status.StateCurrent", "current state");
-    }
+        return readValue(6,"::Program:Cube.Status.StateCurrent", "current state"); }
+    public static String getCurrentStateLive(){
+        return readValue(6,"::Program:Cube.Status.StateCurrent", "current state live"); }
+
 
     public static void getAllValues(){
         getVibration();
@@ -118,6 +120,9 @@ public class Read {
                     int currentState = (int) variant.getValue();
                     System.out.println("Current state: " + currentState);
                     return String.valueOf(currentState);
+                case "current state live":
+                    int currentStateLive = (int) variant.getValue();
+                    return String.valueOf(currentStateLive);
                 default:
                     return null;
             }
