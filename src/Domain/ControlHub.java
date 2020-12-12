@@ -16,7 +16,8 @@ public class ControlHub {
         System.out.println("4. Show OEE.");
         System.out.println("5. Show optimal speed.");
         System.out.println("6. Find batch (requires Batch ID)");
-        System.out.println("7. Exit program.");
+        System.out.println("7. Calculate estimated error for given product types.");
+        System.out.println("8. Exit program.");
 
         Scanner s = new Scanner(System.in);
 
@@ -51,6 +52,11 @@ public class ControlHub {
                 break;
             }
             case 7:{
+                OptimalSpeedCalculator optimalSpeedCalculator = new OptimalSpeedCalculator();
+                optimalSpeedCalculator.calculateDefectiveProducts();
+                break;
+            }
+            case 8:{
                 s.close();
                 System.exit(0);
             }
@@ -99,12 +105,13 @@ public class ControlHub {
 
     }
 
+
     private void optimalSpeed() {
         // Needs to print out error for invalid commands
 
         OptimalSpeedCalculator noob = new OptimalSpeedCalculator("1");
         //noob.noobMethod();
-        noob.returnOfTheNoob();
+        //noob.returnOfTheNoob();
 
         System.out.println("Which beer needs to be optimized (0-5)?");
         System.out.println("0 - Pilsner");
@@ -119,7 +126,7 @@ public class ControlHub {
 
 
         HashMap<Integer, String> beerMap = new HashMap<>();
-        beerMap.put(0, "Pisner");
+        beerMap.put(0, "Pilsner");
         beerMap.put(1, "Wheat");
         beerMap.put(2, "IPA");
         beerMap.put(3, "Stout");
