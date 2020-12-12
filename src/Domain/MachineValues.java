@@ -1,18 +1,15 @@
 package Domain;
 
 import Persistence.DatabaseWrite;
-
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
+import java.util.*;
 
-public class MachineValues {
+public class MachineValues{
 
     // When you start the machine, the program needs to keep running, as it needs to log values every 10 seconds.
     // Can you give the user the possibility to stop / abort while the program is logging values?
     // Need to implement wait() notify(), but too complicated for now.
-
+    // Total amount, acceptable amount confusing in the simulation, as one of them does not run.
 
     public void machineStarted() {
 
@@ -20,16 +17,6 @@ public class MachineValues {
         ArrayList<String> tempArray = new ArrayList<>();
         ArrayList<String> humidityArray = new ArrayList<>();
         ArrayList<String> vibrationArray = new ArrayList<>();
-
-
-        // Idea was to be able to interrupt the machine while it was running/logging
-        /*MachineControl machineControl = new MachineControl();
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("You have the following options while the machine is running: ");
-        System.out.println("1. Stop the machine.");
-        System.out.println("2. Abort the machine.");
-        System.out.println("3. Get current machine values.");*/
 
         Date date = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
@@ -49,68 +36,61 @@ public class MachineValues {
         productTypes.put("5", "ALCOHOL FREE");
 
         String currentProduct = Read.getCurrentProduct(); //used several times
-
         machineValues.put("Product Type", productTypes.get(currentProduct));
-        //machineValues.put("Start Humidity", Read.getHumidity());
-        //machineValues.put("Start Temperature", Read.getTemperature());
-        //machineValues.put("Start Vibration", Read.getVibration());
 
-        int counter = 0;
+        //Starting thread for live machine values
+        LiveMachineValues liveMachineValues = new LiveMachineValues(currentProduct);
+        Thread liveValuesThread = new Thread(liveMachineValues);
+        liveValuesThread.start();
 
-        while (!Read.getCurrentState().equals("17")) {
+        /*try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }*/
 
-            while (Read.getCurrentState().equals("6")) {
+        // Problem implementing this, as system.in kept blocking the system?
+        //Print user information and start thread so user can interrupt the machine
+        /*System.out.println("You have the following options while the machine is running: ");
+        System.out.println("1. Stop the machine.");
+        System.out.println("2. Abort the machine.");
 
-                String temperature = Read.getTemperature();
-                String humidity = Read.getHumidity();
-                String vibration = Read.getVibration();
-
-                machineValues.put("Temperature " + counter + "0 seconds", temperature);
-                machineValues.put("Humidity " + counter + "0 seconds", humidity);
-                machineValues.put("Vibration " + counter + "0 seconds", vibration);
-
-                tempArray.add(temperature);
-                humidityArray.add(humidity);
-                vibrationArray.add(vibration);
-
-                OEECalculator oeeCalculator = new OEECalculator(Integer.parseInt(currentProduct), Integer.parseInt(Read.getProductsProduced()),
-                        Integer.parseInt(Read.getFailedProductsProduced()), (int)(System.currentTimeMillis() - startTime));
-                System.out.println("The current OEE is: " + oeeCalculator.calculateLiveOEE());
-                System.out.println("");
-
-                counter++;
+        InterruptMachine interruptMachine = new InterruptMachine();
+        Thread interruptThread = new Thread(interruptMachine);*/
 
 
-                try {
-                    Thread.sleep(10000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+        // Create HashSet to make it easier to compare several values. Inspiration from hjmd's answer in StackOverflow:
+        // https://stackoverflow.com/questions/10205437/compare-one-string-with-multiple-values-in-one-expression
+        Set<String> states = new HashSet<>();
+        states.add("17");   // Completed
+        states.add("11");   // Held
+        states.add("9");    // Aborted
+        states.add("4");    // Idle
+        states.add("2");    // Stopped
 
-            /*int userInput = scanner.nextInt();
-
-            switch (userInput){
-                case 1:{
-                    machineControl.machineCntrlCmd(3);
-                    return;
-                }
-                case 2:{
-                    machineControl.machineCntrlCmd(4);
-                    return;
-                }
-                case 3:{
-                    Read.getAllValues();
-                }
-            }*/
-
+        while (!states.contains(Read.getCurrentStateLive())) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
 
-        // Total amount, acceptable amount confusing in the simulation, as one of them does not run.
+        Double batchDurationSeconds = (System.currentTimeMillis() - startTime) / 1000D;
+
+        try {
+            liveValuesThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        tempArray = liveMachineValues.getTempArray();
+        humidityArray = liveMachineValues.getHumidityArray();
+        vibrationArray = liveMachineValues.getVibrationArray();
+        machineValues.putAll(liveMachineValues.getMachineValues());
 
         String totalAmount = Read.getProductsProduced();
         String defectAmount = Read.getFailedProductsProduced();
-        Double batchDurationSeconds = (System.currentTimeMillis() - startTime) / 1000D;
 
         machineValues.put("End Humidity", Read.getHumidity());
         machineValues.put("End Temperature", Read.getTemperature());
@@ -132,6 +112,7 @@ public class MachineValues {
 
         DatabaseWrite databaseWrite = new DatabaseWrite();
         databaseWrite.receiveData(machineValues);
+
 
     }
 
