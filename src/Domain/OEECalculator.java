@@ -94,8 +94,11 @@ public class OEECalculator {
 
         protected double calculateLiveOEE (){
             this.goodCount = this.totalCount - this.rejectedCount;
+            System.out.println(goodCount);
+            System.out.println(this.idealCycleTime(this.beerType));
+            System.out.println(this.shiftLengthSeconds);
 
-            this.oee = ((double)this.goodCount * idealCycleTime(this.beerType)) / (this.shiftLengthSeconds/60);
+            this.oee = ((double)this.goodCount * idealCycleTime(this.beerType)) / this.shiftLengthSeconds;
             return this.oee;
         }
     }
