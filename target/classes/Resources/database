@@ -1,0 +1,119 @@
+--creating the database
+
+CREATE DATABASE Batches;
+
+CREATE TYPE beers AS ENUM('PILSNER', 'WHEAT', 'IPA', 'STOUT', 'ALE', 'ALCOHOL_FREE');
+
+CREATE TABLE Temperatures(
+id SERIAL PRIMARY KEY,
+col0000 FLOAT,
+col0010 FLOAT,
+col0020 FLOAT,
+col0030 FLOAT,
+col0040 FLOAT,
+col0050 FLOAT,
+col0060 FLOAT,
+col0070 FLOAT,
+col0080 FLOAT,
+col0090 FLOAT,
+col0100 FLOAT,
+col0110 FLOAT,
+col0120 FLOAT,
+col0180 FLOAT,
+col0240 FLOAT,
+col0300 FLOAT,
+col0360 FLOAT,
+col0420 FLOAT,
+col0480 FLOAT,
+col0540 FLOAT,
+col0600 FLOAT
+);
+
+CREATE TABLE Humidities(
+id SERIAL PRIMARY KEY,
+col0000 FLOAT,
+col0010 FLOAT,
+col0020 FLOAT,
+col0030 FLOAT,
+col0040 FLOAT,
+col0050 FLOAT,
+col0060 FLOAT,
+col0070 FLOAT,
+col0080 FLOAT,
+col0090 FLOAT,
+col0100 FLOAT,
+col0110 FLOAT,
+col0120 FLOAT,
+col0180 FLOAT,
+col0240 FLOAT,
+col0300 FLOAT,
+col0360 FLOAT,
+col0420 FLOAT,
+col0480 FLOAT,
+col0540 FLOAT,
+col0600 FLOAT
+);
+
+CREATE TABLE Vibrations(
+id SERIAL PRIMARY KEY,
+col0000 FLOAT,
+col0010 FLOAT,
+col0020 FLOAT,
+col0030 FLOAT,
+col0040 FLOAT,
+col0050 FLOAT,
+col0060 FLOAT,
+col0070 FLOAT,
+col0080 FLOAT,
+col0090 FLOAT,
+col0100 FLOAT,
+col0110 FLOAT,
+col0120 FLOAT,
+col0180 FLOAT,
+col0240 FLOAT,
+col0300 FLOAT,
+col0360 FLOAT,
+col0420 FLOAT,
+col0480 FLOAT,
+col0540 FLOAT,
+col0600 FLOAT
+);
+
+CREATE TABLE State_times(
+id SERIAL PRIMARY KEY,
+Deactived FLOAT NOT NULL,
+Clearing FLOAT NOT NULL,
+Stopped FLOAT NOT NULL,
+Starting FLOAT NOT NULL,
+Idle FLOAT NOT NULL,
+Suspended FLOAT NOT NULL,
+Execute FLOAT NOT NULL,
+Stopping FLOAT NOT NULL,
+Aborting FLOAT NOT NULL,
+Aborted FLOAT NOT NULL,
+Resetting FLOAT NOT NULL,
+Completing FLOAT NOT NULL,
+Complete FLOAT NOT NULL,
+Deactivating FLOAT NOT NULL,
+Activating FLOAT NOT NULL
+);
+
+CREATE TABLE Batch(
+batch_id SERIAL PRIMARY KEY,
+real_batch_id VARCHAR(50),
+batch_date VARCHAR(30) NOT NULL,
+product_type beers NOT NULL,
+machine_speed FLOAT,
+Acceptable_amount_produced FLOAT,
+Defect_amount_produced FLOAT,
+Total_amount_produced FLOAT,
+Batch_duration_seconds FLOAT,
+OEE FLOAT,
+Avg_temperature FLOAT,
+Temperature_logs INT REFERENCES Temperatures(id) NOT NULL,
+Avg_humidity FLOAT,
+Humidity_logs INT REFERENCES Humidities(id) NOT NULL,
+Avg_vibration FLOAT,
+Vibration_logs INT REFERNCES Vibrations(id) NOT NULL,
+Time_in_states INT REFERENCES State_times NOT NULL
+);
