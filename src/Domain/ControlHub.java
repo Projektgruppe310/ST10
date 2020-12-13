@@ -1,6 +1,7 @@
 package Domain;
 
 import Persistence.DatabaseRead;
+import Persistence.Testclass;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -13,16 +14,13 @@ public class ControlHub {
         System.out.println("1. Read current machine values.");
         System.out.println("2. Create batch (customizable)");
         System.out.println("3. Control the machine (Start/Stop/Etc.)");
-        System.out.println("4. Show OEE.");
-        System.out.println("5. Show optimal speed.");
-        System.out.println("6. Find batch (requires Batch ID)");
-        System.out.println("7. Exit program.");
+        System.out.println("4. Show optimal speed.");
+        System.out.println("5. Find batch (requires Batch ID)");
+        System.out.println("6. Exit program.");
 
         Scanner s = new Scanner(System.in);
 
         int cmd = s.nextInt();
-
-
 
         switch (cmd){
             case 1:{
@@ -39,18 +37,14 @@ public class ControlHub {
                 break;
             }
             case 4:{
-                oeeCalculator();
-                break;
-            }
-            case 5:{
                 optimalSpeed();
                 break;
             }
-            case 6:{
+            case 5:{
                 findBatch();
                 break;
             }
-            case 7:{
+            case 6:{
                 s.close();
                 System.exit(0);
             }
@@ -70,7 +64,7 @@ public class ControlHub {
 
     private void machineControl() {
         System.out.println("You have the following options: ");
-        System.out.println("0. ?"); //What does 0 do?
+        //System.out.println("0. ?"); //What does 0 do?
         System.out.println("1. Reset the machine.");
         System.out.println("2. Start the machine.");
         System.out.println("3. Stop the machine.");
@@ -82,12 +76,6 @@ public class ControlHub {
 
         MachineControl machineControl = new MachineControl();
         machineControl.machineCntrlCmd(control);
-
-        if (control == 2){
-            MachineValues machineValues = new MachineValues();
-            machineValues.machineStarted();
-        }
-
     }
 
     private void oeeCalculator() {
@@ -101,10 +89,6 @@ public class ControlHub {
 
     private void optimalSpeed() {
         // Needs to print out error for invalid commands
-
-        OptimalSpeedCalculator noob = new OptimalSpeedCalculator("1");
-        //noob.noobMethod();
-        noob.returnOfTheNoob();
 
         System.out.println("Which beer needs to be optimized (0-5)?");
         System.out.println("0 - Pilsner");
@@ -155,6 +139,29 @@ public class ControlHub {
         System.out.println("");
         System.out.println("Batch report for Batch ID " + batchID + ": ");
         System.out.println(batch);
+
+        Testclass testclass = new Testclass(batch);
+        System.out.println("Would you like to export the batch report to a PDF file? Yes No");
+
+        String pdfConfirmation = scanner.next().toUpperCase();
+
+        switch (pdfConfirmation){
+            case "YES":
+            case "Y": {
+
+                testclass.main();
+                break;
+            }
+            case "NO":
+            case "N": {
+                break;
+            }
+            default: {
+                System.out.println("Invalid input.");
+            }
+
+        }
+
     }
 
 }

@@ -81,7 +81,7 @@ col0600 FLOAT
 
 CREATE TABLE State_times(
 id SERIAL PRIMARY KEY,
-Deactived FLOAT NOT NULL,
+Deactivated FLOAT NOT NULL,
 Clearing FLOAT NOT NULL,
 Stopped FLOAT NOT NULL,
 Starting FLOAT NOT NULL,
@@ -114,6 +114,6 @@ Temperature_logs INT REFERENCES Temperatures(id) NOT NULL,
 Avg_humidity FLOAT,
 Humidity_logs INT REFERENCES Humidities(id) NOT NULL,
 Avg_vibration FLOAT,
-Vibration_logs INT REFERNCES Vibrations(id) NOT NULL,
+Vibration_logs INT REFERENCES Vibrations(id) NOT NULL,
 Time_in_states INT REFERENCES State_times NOT NULL
 );

@@ -23,24 +23,4 @@ public class OptimalSpeedCalculator {
 
     }
 
-
-    /*public void noobMethod() {
-        HashMap noob = new HashMap();
-
-        Database database = new Database();
-        database.insertHum(noob);
-        database.insertStateTimes(noob);
-        database.insertTemp(noob);
-        database.insertBatch(noob);
-    }   */
-
-    public void returnOfTheNoob() {
-
-        PdfWriter pdfWriter = new PdfWriter();
-        pdfWriter.printer();
-
-        Testclass testclass = new Testclass();
-        testclass.printer();
-    }
-
 }

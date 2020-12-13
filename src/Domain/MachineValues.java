@@ -26,17 +26,9 @@ public class MachineValues{
         machineValues.put("Batch Date", dateFormat.format(date));
         machineValues.put("Machine Speed", Read.getMachineSpeed());
 
-        // Quick solution for PSQLException about enum beers
-        HashMap<String, String> productTypes = new HashMap<>();
-        productTypes.put("0", "PILSNER");
-        productTypes.put("1", "WHEAT");
-        productTypes.put("2", "IPA");
-        productTypes.put("3", "STOUT");
-        productTypes.put("4", "ALE");
-        productTypes.put("5", "ALCOHOL FREE");
+        String currentProduct = productNames(Read.getCurrentProduct()); //used several times
 
-        String currentProduct = Read.getCurrentProduct(); //used several times
-        machineValues.put("Product Type", productTypes.get(currentProduct));
+        machineValues.put("Product Type", currentProduct);
 
         //Starting thread for live machine values
         LiveMachineValues liveMachineValues = new LiveMachineValues(currentProduct);
@@ -143,6 +135,16 @@ public class MachineValues{
         return String.valueOf(sum / vibrationArray.size());
     }
 
+    public String productNames (String productType){
+        HashMap<String, String> productTypes = new HashMap<>();
+        productTypes.put("0", "PILSNER");
+        productTypes.put("1", "WHEAT");
+        productTypes.put("2", "IPA");
+        productTypes.put("3", "STOUT");
+        productTypes.put("4", "ALE");
+        productTypes.put("5", "ALCOHOL FREE");
 
+        return productTypes.get(productType);
+    }
 
 }
